@@ -32,3 +32,11 @@ Route::get('/post/{id}', function ($id) {
 Route::get('/post/{id}/{name}', function ($id, $name) {
     return "This is post no # " . $id . " And the name is # " . $name;
 });
+
+Route::get('/admin/post/example/sth', array('as' => 'admin.home', function() {
+    $url = route('admin.home');
+    return $url;
+}));
+
+// by naming this url we can make these long urls and use them in short hands in the code like
+// <a href="route('admin.home')"> Admin Home </a>
