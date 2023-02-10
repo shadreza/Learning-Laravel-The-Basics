@@ -24,3 +24,11 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return "Hi let's connect";
 });
+
+Route::get('/post/{id}', function ($id) {
+    return "This is post no # ". $id;
+});
+
+Route::get('/post/{id}/{name}', function ($id, $name) {
+    return "This is post no # " . $id . " And the name is # " . $name;
+});
