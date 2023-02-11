@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,5 @@ Route::get('/admin/post/example/sth', array('as' => 'admin.home', function() {
 
 // by naming this url we can make these long urls and use them in short hands in the code like
 // <a href="route('admin.home')"> Admin Home </a>
+
+Route::get('/posts/{id}', [PostsController::class, 'idPassing']);
