@@ -46,6 +46,8 @@ Route::get('/posts/{id}', [PostsController::class, 'idPassing']);
 
 Route::get('/photo', [PostsController::class, 'index']);
 
-Route::resource('/all-posts', PostsController::class);
+// Route::resource('/all-posts', PostsController::class);
 
 Route::get('/contact', [PostsController::class, 'contact']);
+
+Route::get('/pass/{name}', [PostsController::class, 'passName']);
