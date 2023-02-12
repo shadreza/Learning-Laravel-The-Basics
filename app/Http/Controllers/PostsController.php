@@ -92,8 +92,8 @@ class PostsController extends Controller
         return view('contact');
     }
 
-    public function passName($name) {
+    public function passName($name, $age, $misc) {
         // return view('post')->with('NAME', $name);
-        return view('post', compact('name'));
+        return view('post', compact('name', 'age', 'misc'));
     }
 }

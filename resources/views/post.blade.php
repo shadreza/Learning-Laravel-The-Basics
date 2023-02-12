@@ -8,7 +8,10 @@
 </head>
 <body>
     <div>
-        <p>This is the post page for - {{$name}}</p>
+        <p>This is the post page for</p>
+        <p>{{$name}}</p>
+        <p>{{$age}}</p>
+        <p>{{$misc}}</p>
     </div>
 </body>
 </html>

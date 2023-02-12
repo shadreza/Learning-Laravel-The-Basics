@@ -50,4 +50,4 @@ Route::get('/photo', [PostsController::class, 'index']);
 
 Route::get('/contact', [PostsController::class, 'contact']);
 
-Route::get('/pass/{name}', [PostsController::class, 'passName']);
+Route::get('/pass/{name}/{age}/{misc}', [PostsController::class, 'passName']);
