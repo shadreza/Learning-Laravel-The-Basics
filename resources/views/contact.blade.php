@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Laravel Contact Page</title>
-    </head>
-    <body>
-        <div>
-            <h2 style="color: maroon;">Contact</h2>
-        </div>
-    </body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+    <p>This is from the contact page</p>
+@stop
+
+@section('footer')
+    <script>alert('contact alert')</script>
+    <p>This is footer from the contact page</p>
+@stop
