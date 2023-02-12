@@ -27,14 +27,14 @@ Route::get('/about', function () {
 // });
 
 Route::get('/post/{id}', function ($id) {
-    return "This is post no # ". $id;
+    return "This is post no # " . $id;
 });
 
 Route::get('/post/{id}/{name}', function ($id, $name) {
     return "This is post no # " . $id . " And the name is # " . $name;
 });
 
-Route::get('/admin/post/example/sth', array('as' => 'admin.home', function() {
+Route::get('/admin/post/example/sth', array('as' => 'admin.home', function () {
     $url = route('admin.home');
     return $url;
 }));

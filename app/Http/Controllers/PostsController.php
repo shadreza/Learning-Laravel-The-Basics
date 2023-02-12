@@ -88,11 +88,16 @@ class PostsController extends Controller
         return "The id passed is " . $id;
     }
 
-    public function contact() {
-        return view('contact');
+    public function contact()
+    {
+
+        $people = ["Shad", "Reza", "Sidratul", "Muntaha", "Tuba"];
+
+        return view('contact', compact('people'));
     }
 
-    public function passName($name, $age, $misc) {
+    public function passName($name, $age, $misc)
+    {
         // return view('post')->with('NAME', $name);
         return view('post', compact('name', 'age', 'misc'));
     }
