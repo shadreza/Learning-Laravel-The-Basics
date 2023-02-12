@@ -8,7 +8,7 @@
 </head>
 <body>
     <div>
-        <p>This is the post page for - {{$NAME}}</p>
+        <p>This is the post page for - {{$name}}</p>
     </div>
 </body>
 </html>
