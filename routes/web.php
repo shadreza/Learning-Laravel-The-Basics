@@ -22,9 +22,9 @@ Route::get('/about', function () {
     return "This is the about part";
 });
 
-Route::get('/contact', function () {
-    return "Hi let's connect";
-});
+// Route::get('/contact', function () {
+//     return "Hi let's connect";
+// });
 
 Route::get('/post/{id}', function ($id) {
     return "This is post no # ". $id;
@@ -42,8 +42,10 @@ Route::get('/admin/post/example/sth', array('as' => 'admin.home', function() {
 // by naming this url we can make these long urls and use them in short hands in the code like
 // <a href="route('admin.home')"> Admin Home </a>
 
-// Route::get('/posts/{id}', [PostsController::class, 'idPassing']);
+Route::get('/posts/{id}', [PostsController::class, 'idPassing']);
 
 Route::get('/photo', [PostsController::class, 'index']);
 
 Route::resource('/all-posts', PostsController::class);
+
+Route::get('/contact', [PostsController::class, 'contact']);

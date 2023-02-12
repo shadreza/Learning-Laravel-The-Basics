@@ -87,4 +87,8 @@ class PostsController extends Controller
     {
         return "The id passed is " . $id;
     }
+
+    public function contact() {
+        return view('contact');
+    }
 }
