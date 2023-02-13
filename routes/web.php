@@ -267,3 +267,10 @@ Route::get('/readsoftdelete', function () {
     $post = Post::onlyTrashed()->where('id', 9)->get();
     return $post;
 });
+
+
+// restoring the soft deleted item
+Route::get('/restore', function () {
+    $post = Post::withTrashed()->where('is_admin', 1)->restore();
+    return $post;
+});
