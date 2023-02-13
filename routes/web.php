@@ -85,3 +85,12 @@ Route::get('/read', function () {
 
     return $results[0]->title;
 });
+
+
+// return the affected row / row no
+Route::get('/update', function () {
+
+    $updated = DB::update('update posts set title = "LARAVEL" where id = ?', [1]);
+
+    return $updated;
+});
