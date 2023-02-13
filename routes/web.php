@@ -252,7 +252,18 @@ Route::get('/deleteelq', function () {
 // delete to the trash
 // its not deleted unless we force it to
 Route::get('/softdelete', function () {
-    Post::find(10)->delete();
+    Post::find(11)->delete();
 });
 
 
+// read soft delete
+Route::get('/readsoftdelete', function () {
+
+    // $post = Post::find(10);
+
+    // $post = Post::withTrashed()->where('id', 10)->get();
+    // return $post;
+
+    $post = Post::onlyTrashed()->where('id', 9)->get();
+    return $post;
+});
