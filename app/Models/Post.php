@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
@@ -16,6 +17,7 @@ class Post extends Model
     // protected $primaryKey = 'post_id';
 
     use HasFactory;
+    use SoftDeletes;
 
     // have to add the columns that can be created via the create method
     // for mass assigning
@@ -23,4 +25,6 @@ class Post extends Model
         'title',
         'content'
     ];
+
+    protected $dates = ['deleted_at'];
 }

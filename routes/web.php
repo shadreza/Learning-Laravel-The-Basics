@@ -217,7 +217,7 @@ Route::get('/createelq', function () {
 
     // have to add the array of the fillable prop in the model
     // for mass assigning
-    Post::create(['title' => 'the create method', 'content' => 'learning alot with new things']);
+    Post::create(['title' => '66', 'content' => 'learning alot with new things']);
 });
 
 
@@ -246,3 +246,13 @@ Route::get('/deleteelq', function () {
     // prc # 4
     Post::where('title', 'new ORM set title')->delete();
 });
+
+
+// soft deleting
+// delete to the trash
+// its not deleted unless we force it to
+Route::get('/softdelete', function () {
+    Post::find(10)->delete();
+});
+
+
