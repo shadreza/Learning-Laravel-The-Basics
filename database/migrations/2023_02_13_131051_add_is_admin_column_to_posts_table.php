@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             //
-            $table->tinyInteger('is_admin')->default('0');
+            $table->tinyInteger('is_admin')->default('1');
         });
     }
 

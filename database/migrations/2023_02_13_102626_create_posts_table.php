@@ -40,3 +40,6 @@ return new class extends Migration
 
 // to modify a table like adding another column without rollback and loosing the current data
 // php artisan make:migration add_is_admin_column_to_post_table
+
+// this will roll things back and then migrate them again
+// php artisan migrate:refresh
