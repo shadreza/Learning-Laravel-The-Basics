@@ -148,3 +148,19 @@ Route::get('/find/{id}', function ($id) {
 
     return "Data Not Found";
 });
+
+
+// retrieving a specific data with constraints from database using eloquent
+Route::get('/findwhere', function () {
+
+    // this is pulling all the records
+    $post = Post::where('id', 7)->orderBy('id', 'desc')->take(1)->get();
+
+    if ($post) {
+        return $post;
+    }
+
+    return "Data Not Found";
+
+    // return Post::where('id', 6)->get();
+});
