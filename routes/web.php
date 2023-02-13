@@ -18,36 +18,50 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function () {
-    return "This is the about part";
-});
+// Route::get('/about', function () {
+//     return "This is the about part";
+// });
 
 // Route::get('/contact', function () {
 //     return "Hi let's connect";
 // });
 
-Route::get('/post/{id}', function ($id) {
-    return "This is post no # " . $id;
-});
+// Route::get('/post/{id}', function ($id) {
+//     return "This is post no # " . $id;
+// });
 
-Route::get('/post/{id}/{name}', function ($id, $name) {
-    return "This is post no # " . $id . " And the name is # " . $name;
-});
+// Route::get('/post/{id}/{name}', function ($id, $name) {
+//     return "This is post no # " . $id . " And the name is # " . $name;
+// });
 
-Route::get('/admin/post/example/sth', array('as' => 'admin.home', function () {
-    $url = route('admin.home');
-    return $url;
-}));
+// Route::get('/admin/post/example/sth', array('as' => 'admin.home', function () {
+//     $url = route('admin.home');
+//     return $url;
+// }));
 
 // by naming this url we can make these long urls and use them in short hands in the code like
 // <a href="route('admin.home')"> Admin Home </a>
 
-Route::get('/posts/{id}', [PostsController::class, 'idPassing']);
+// Route::get('/posts/{id}', [PostsController::class, 'idPassing']);
 
-Route::get('/photo', [PostsController::class, 'index']);
+// Route::get('/photo', [PostsController::class, 'index']);
 
 // Route::resource('/all-posts', PostsController::class);
 
-Route::get('/contact', [PostsController::class, 'contact']);
+// Route::get('/contact', [PostsController::class, 'contact']);
 
-Route::get('/pass/{name}/{age}/{misc}', [PostsController::class, 'passName']);
+// Route::get('/pass/{name}/{age}/{misc}', [PostsController::class, 'passName']);
+
+
+/*
+|--------------------------------------------------------------------------
+| Application Routes
+|--------------------------------------------------------------------------
+*/
+
+use Illuminate\Support\Facades\DB;
+
+Route::get('/insert', function () {
+
+    DB::insert('insert into posts(title, content) values(?, ?)', ['PHP with Laravel', 'Laravel is new but great till now']);
+});
