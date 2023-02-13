@@ -215,7 +215,16 @@ Route::get('updateelq', function () {
 // creating data
 Route::get('/createelq', function () {
 
-    Post::create(['title' => 'the create method', 'content' => 'learning alot with new things']);
     // have to add the array of the fillable prop in the model
+    // for mass assigning
+    Post::create(['title' => 'the create method', 'content' => 'learning alot with new things']);
+});
 
+
+// updating data
+Route::get('/updateelq', function () {
+
+    // have to add the array of the fillable prop in the model
+    // for mass assigning
+    Post::where('id', 6)->where('is_admin', 1)->update(['is_admin' => 0]);
 });
