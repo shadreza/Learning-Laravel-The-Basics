@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,4 +105,46 @@ Route::get('/delete/{id}', function ($id) {
     $deleted = DB::delete('delete from posts where id = ?', [$id]);
 
     return $deleted;
+});
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Eloquent ORM
+|--------------------------------------------------------------------------
+*/
+
+// retrieving all data from database using eloquent
+Route::get('/find', function () {
+
+    // this is pulling all the records
+    $posts = Post::all();
+
+    if ($posts) {
+        return $posts;
+    }
+
+    return "No data found";
+
+    // $res = 0;
+
+    // foreach ($posts as $post) {
+    //     return $post->title;
+    // }
+});
+
+
+// retrieving a specific data from database using eloquent
+Route::get('/find/{id}', function ($id) {
+
+    // this is pulling all the records
+    $post = Post::find($id);
+    if ($post) {
+        return $post->title;
+    }
+
+    return "Data Not Found";
 });
