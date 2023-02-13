@@ -217,7 +217,7 @@ Route::get('/createelq', function () {
 
     // have to add the array of the fillable prop in the model
     // for mass assigning
-    Post::create(['title' => '66', 'content' => 'learning alot with new things']);
+    Post::create(['title' => '4', 'content' => 'learning alot with new things']);
 });
 
 
@@ -252,7 +252,7 @@ Route::get('/deleteelq', function () {
 // delete to the trash
 // its not deleted unless we force it to
 Route::get('/softdelete', function () {
-    Post::find(11)->delete();
+    Post::find(18)->delete();
 });
 
 
@@ -272,5 +272,12 @@ Route::get('/readsoftdelete', function () {
 // restoring the soft deleted item
 Route::get('/restore', function () {
     $post = Post::withTrashed()->where('is_admin', 1)->restore();
+    return $post;
+});
+
+
+// deleting permanently
+Route::get('/forcedelete', function () {
+    $post = Post::onlyTrashed()->where('is_admin', 1)->forceDelete();
     return $post;
 });
