@@ -55,7 +55,7 @@ Route::get('/', function () {
 
 /*
 |--------------------------------------------------------------------------
-| Application Routes
+| Databse Raw SQL Queries
 |--------------------------------------------------------------------------
 */
 
@@ -63,5 +63,25 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('/insert', function () {
 
-    DB::insert('insert into posts(title, content) values(?, ?)', ['PHP with Laravel', 'Laravel is new but great till now']);
+    DB::insert('insert into posts(title, content) values(?, ?)', ['NEXT', 'MERN is new but great till then']);
+});
+
+
+Route::get('/read', function () {
+
+    $results = DB::select('select * from posts where id = ?', [1]);
+
+    // return $results;
+
+    // for ($i = 0; $i < count($results); $i++) {
+    //     print $results[$i]->title;
+    // }
+
+    // foreach($results as $post) {
+    //     return $post->title;
+    // }
+
+    // return var_dump($results);
+
+    return $results[0]->title;
 });
