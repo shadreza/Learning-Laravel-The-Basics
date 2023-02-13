@@ -63,7 +63,7 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('/insert', function () {
 
-    DB::insert('insert into posts(title, content) values(?, ?)', ['NEXT', 'MERN is new but great till then']);
+    DB::insert('insert into posts(title, content) values(?, ?)', ['LARAVEL', 'MERN is new but great till then']);
 });
 
 
@@ -83,7 +83,10 @@ Route::get('/read', function () {
 
     // return var_dump($results);
 
-    return $results[0]->title;
+    if (count($results) > 0)
+        return $results[0]->title;
+
+    return "No Data";
 });
 
 
@@ -93,4 +96,12 @@ Route::get('/update', function () {
     $updated = DB::update('update posts set title = "LARAVEL" where id = ?', [1]);
 
     return $updated;
+});
+
+// return the affected row / row no
+Route::get('/delete/{id}', function ($id) {
+
+    $deleted = DB::delete('delete from posts where id = ?', [$id]);
+
+    return $deleted;
 });
