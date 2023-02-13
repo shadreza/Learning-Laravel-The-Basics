@@ -186,3 +186,27 @@ Route::get('/findmoremore', function () {
 
     // return Post::where('id', 6)->get();
 });
+
+// inserting data using eloquent
+Route::get('sendelq', function () {
+    $post = new Post;
+
+    $post->title = "new ORM set title";
+    $post->content = "just wow eloquent";
+
+    // save() will insert and even update
+    $post->save();
+    return "data saved";
+});
+
+// updating data using eloquent
+Route::get('updateelq', function () {
+    $post = Post::find(6);
+
+    $post->title = "new title";
+    $post->content = "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ";
+
+    // save() will insert and even update
+    $post->save();
+    return "data updated";
+});
