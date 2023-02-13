@@ -164,3 +164,25 @@ Route::get('/findwhere', function () {
 
     // return Post::where('id', 6)->get();
 });
+
+
+// retrieving a specific data from database using eloquent but if not then give exception
+Route::get('/findmore', function () {
+
+    // this is pulling all the records
+    $post = Post::findOrFail(5);
+    return $post;
+
+    // return Post::where('id', 6)->get();
+});
+
+
+// retrieving a specific data from database using eloquent but if not then give exception with constraint
+Route::get('/findmoremore', function () {
+
+    // this is pulling all the records
+    $post = Post::where('user_count', '<', 50)->firstOrFail();
+    return $post;
+
+    // return Post::where('id', 6)->get();
+});
