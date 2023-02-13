@@ -31,3 +31,12 @@ return new class extends Migration
         Schema::dropIfExists('posts');
     }
 };
+
+// create a migration for a new table
+// php artisan make:migration create_posts_table --create="posts"
+
+// to rollback to prev position and remove the table and loose the data
+// php artisan migrate:rollback
+
+// to modify a table like adding another column without rollback and loosing the current data
+// php artisan make:migration add_is_admin_column_to_post_table
