@@ -210,3 +210,12 @@ Route::get('updateelq', function () {
     $post->save();
     return "data updated";
 });
+
+
+// creating data
+Route::get('/createelq', function () {
+
+    Post::create(['title' => 'the create method', 'content' => 'learning alot with new things']);
+    // have to add the array of the fillable prop in the model
+
+});

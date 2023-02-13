@@ -17,5 +17,9 @@ class Post extends Model
 
     use HasFactory;
 
-    
+    // have to add the columns that can be created via the create method
+    protected $fillable = [
+        'title',
+        'content'
+    ];
 }
