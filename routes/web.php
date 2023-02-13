@@ -228,3 +228,21 @@ Route::get('/updateelq', function () {
     // for mass assigning
     Post::where('id', 6)->where('is_admin', 1)->update(['is_admin' => 0]);
 });
+
+
+// delete data
+Route::get('/deleteelq', function () {
+
+    // prc # 1
+    // $post = Post::find(7);
+    // $post->delete();
+
+    // prc # 2
+    // Post::destroy(5);
+
+    // prc # 3
+    // Post::destroy([4, 6]);
+
+    // prc # 4
+    Post::where('title', 'new ORM set title')->delete();
+});
