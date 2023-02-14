@@ -49,4 +49,12 @@ class User extends Authenticatable
         // by default user_id is there
         return $this->hasOne('App\Models\Post');
     }
+
+    public function see_posts()
+    {
+        // return $this->hasOne('App\Models\Post', 'user_id', 'post_id');
+        // return $this->hasOne('App\Models\Post', 'user_id');
+        // by default user_id is there
+        return $this->hasMany('App\Models\Post');
+    }
 }

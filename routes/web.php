@@ -291,6 +291,8 @@ Route::get('/forcedelete', function () {
 |--------------------------------------------------------------------------
 */
 
+// one to one rel
+
 // getting the post of the passed user
 Route::get('/user/{id}/post', function ($id) {
     return User::find($id)->see_post->title;
@@ -303,3 +305,18 @@ Route::get('/post/{id}/user', function ($id) {
 });
 
 
+
+
+
+// one to many rel
+
+// get all the posts of a user
+Route::get('/allposts/{user_id}', function ($user_id) {
+    $user = User::find($user_id);
+    $posts = [];
+    foreach ($user->see_posts as $post) {
+        echo $post->title . '<br>';
+        // array_push($posts, $post);
+    }
+    // return $posts;
+});
