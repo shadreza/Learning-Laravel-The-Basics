@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
+use App\Models\Country;
 use App\Models\Post;
 use App\Models\User;
 
@@ -359,5 +360,16 @@ Route::get('user/{id}/pivot', function ($id) {
     $user = User::find($id);
     foreach ($user->roles as $role) {
         echo $role->pivot->created_at . "<br>";
+    }
+});
+
+
+
+// using the intermediate table and using hasManyThrough
+
+Route::get('user/country', function () {
+    $country = Country::find(1);
+    foreach ($country->posts as $post) {
+        return $post->title;
     }
 });
