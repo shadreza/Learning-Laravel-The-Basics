@@ -68,6 +68,6 @@ class User extends Authenticatable
         // when the pivot table is as the convention [role_user -> pivot table]
         // [singular + _ in between + alphabetically sorted] -> pivot table convention
 
-        return $this->belongsToMany('App\Models\Role');
+        return $this->belongsToMany('App\Models\Role')->withPivot('created_at');
     }
 }
