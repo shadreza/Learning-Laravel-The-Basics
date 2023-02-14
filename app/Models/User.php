@@ -58,7 +58,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Post');
     }
 
-    public function roles() {
+    public function roles()
+    {
+
+        // if the table name is not like the convention
+
+        // return $this->belongsToMany('App\Models\Role', 'name_of_the_table', 'foreign_key_user_table', 'foreign_key_role_table');
+
+        // when the pivot table is as the convention [role_user -> pivot table]
+        // [singular + _ in between + alphabetically sorted] -> pivot table convention
+
         return $this->belongsToMany('App\Models\Role');
     }
 }
