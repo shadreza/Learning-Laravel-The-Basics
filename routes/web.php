@@ -297,3 +297,9 @@ Route::get('/user/{id}/post', function ($id) {
 });
 
 
+// getting the user of the passed post
+Route::get('/post/{id}/user', function ($id) {
+    return Post::find($id)->see_user->name;
+});
+
+
