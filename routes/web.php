@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
 use App\Models\Post;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -281,3 +282,18 @@ Route::get('/forcedelete', function () {
     $post = Post::onlyTrashed()->where('is_admin', 1)->forceDelete();
     return $post;
 });
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Eloquent Relationship
+|--------------------------------------------------------------------------
+*/
+
+// getting the post of the passed user
+Route::get('/user/{id}/post', function ($id) {
+    return User::find($id)->see_post->title;
+});
+
+
