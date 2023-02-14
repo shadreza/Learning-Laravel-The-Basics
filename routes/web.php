@@ -320,3 +320,32 @@ Route::get('/allposts/{user_id}', function ($user_id) {
     }
     // return $posts;
 });
+
+
+
+
+
+// many to many rel
+
+// get the role of a user
+Route::get('/user/{id}/role', function ($id) {
+
+    // prc # 1
+
+    // $user = User::find($id);
+    // $roles = [];
+    // foreach ($user->roles as $role) {
+    //     echo $role->name . '<br>';
+    //     // array_push($posts, $post);
+    // }
+    // // return $roles;
+
+
+
+
+    // prc # 2
+
+    $user = User::find($id)->roles()->orderBy('name', 'desc')->get();
+
+    return $user;
+});
