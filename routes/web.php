@@ -5,6 +5,7 @@ use App\Http\Controllers\PostsController;
 use App\Models\Country;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Photo;
 
 /*
 |--------------------------------------------------------------------------
@@ -385,7 +386,7 @@ Route::get('user/country', function () {
 */
 
 
-// get the user photo
+// get the user photo -> polymorphic
 
 Route::get('/user/{user_id}/photo', function ($user_id) {
     $user = User::find($user_id);
@@ -399,7 +400,7 @@ Route::get('/user/{user_id}/photo', function ($user_id) {
 
 
 
-// get the post photo
+// get the post photo -> polymorphic
 
 Route::get('/post/{post_id}/photo', function ($post_id) {
     $post = Post::find($post_id);
@@ -412,3 +413,9 @@ Route::get('/post/{post_id}/photo', function ($post_id) {
 });
 
 
+
+// get the owner of a photo by id -> inverse polymorphic
+Route::get('photo/{photo_id}/owner', function ($photo_id) {
+    $photo = Photo::findOrFail($photo_id);
+    return $photo->imageable;
+});
