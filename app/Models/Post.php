@@ -45,7 +45,72 @@ class Post extends Model
 
     // tags methods
 
-    public function tags() {
+    public function tags()
+    {
         return $this->morphToMany('App\Models\Tag', 'taggable');
     }
 }
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Tinker CLI
+|--------------------------------------------------------------------------
+*/
+
+// the following codes will be executing via the tinker cli
+
+// php artisan tinker
+
+
+
+
+// add a post [create]
+// $post = App\Models\Post::create('title'=>'Tinker', 'content'=>'this is from the tinker cli');
+
+// making an object of the model and then putting data and then saving to the DB [create]
+
+// $post = new App\Models\Post
+// $post->title = 'New Title from Tinker'
+// $post->content = 'New Content from Tinker'
+// $post->save();
+
+
+
+
+// read a post [read]
+
+// $post = App\Models\Post::find(4);
+
+
+// using conditions
+
+// $post = App\Models\Post::where('id', 7)->first()
+
+
+
+
+// update a post [update]
+
+// $post = App\Models\Post::find(3)
+// $post->title = 'updated title from tnker'
+// $post->save()
+
+
+
+
+// delete a post [delete]
+
+// $post->delete()
+// $post->forceDelete()
+
+
+
+
+// working with relationships
+
+// $user = App\Models\User::find(1)
+// $user->roles
