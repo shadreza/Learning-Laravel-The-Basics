@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Photo extends Model
 {
     use HasFactory;
+
+    // this will be bringing the posts and the users through the polymorphic relations
+
+    public function imageable()
+    {
+
+        return $this->morphTo();
+    }
 }

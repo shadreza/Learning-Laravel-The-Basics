@@ -27,10 +27,17 @@ class Post extends Model
     ];
 
     protected $dates = ['deleted_at'];
-    
+
     public function see_user()
     {
         return $this->belongsTo('App\Models\User', 'user_id');
     }
 
+
+    // for the polymorphic relation
+
+    public function photos()
+    {
+        return $this->morphMany('App\Models\Photo', 'imageable');
+    }
 }

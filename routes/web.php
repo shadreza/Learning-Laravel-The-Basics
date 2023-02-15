@@ -373,3 +373,42 @@ Route::get('user/country', function () {
         return $post->title;
     }
 });
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Polymorphic Relationship
+|--------------------------------------------------------------------------
+*/
+
+
+// get the user photo
+
+Route::get('/user/{user_id}/photo', function ($user_id) {
+    $user = User::find($user_id);
+
+    // return $user;
+
+    foreach ($user->photos as $photo) {
+        return $photo;
+    }
+});
+
+
+
+// get the post photo
+
+Route::get('/post/{post_id}/photo', function ($post_id) {
+    $post = Post::find($post_id);
+
+    // return $user;
+
+    foreach ($post->photos as $photo) {
+        echo $photo->path . "<br>";
+    }
+});
+
+
