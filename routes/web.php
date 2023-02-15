@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\Photo;
 use App\Models\Video;
+use App\Models\Tag;
 
 /*
 |--------------------------------------------------------------------------
@@ -437,5 +438,22 @@ Route::get('video/{id}/tag', function ($id) {
     $video = Video::findOrFail($id);
     foreach ($video->tags as $tag) {
         echo $tag->name . '<br>';
+    }
+});
+
+
+// get the owner using polymorphic many to many
+Route::get('tag/{tag_id}/post/owner', function ($tag_id) {
+    $tag = Tag::findOrFail($tag_id);
+    foreach ($tag->posts as $post) {
+        echo $post->title . '<br>';
+    }
+});
+
+// get the owner using polymorphic many to many
+Route::get('tag/{tag_id}/video/owner', function ($tag_id) {
+    $tag = Tag::findOrFail($tag_id);
+    foreach ($tag->videos as $video) {
+        echo $video->name . '<br>';
     }
 });
