@@ -6,6 +6,7 @@ use App\Models\Country;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Photo;
+use App\Models\Video;
 
 /*
 |--------------------------------------------------------------------------
@@ -418,4 +419,23 @@ Route::get('/post/{post_id}/photo', function ($post_id) {
 Route::get('photo/{photo_id}/owner', function ($photo_id) {
     $photo = Photo::findOrFail($photo_id);
     return $photo->imageable;
+});
+
+
+
+// polymorphic many to many
+Route::get('post/{id}/tag', function ($id) {
+    $post = Post::findOrFail($id);
+    foreach ($post->tags as $tag) {
+        echo $tag->name . '<br>';
+    }
+});
+
+
+// polymorphic many to many
+Route::get('video/{id}/tag', function ($id) {
+    $video = Video::findOrFail($id);
+    foreach ($video->tags as $tag) {
+        echo $tag->name . '<br>';
+    }
 });
