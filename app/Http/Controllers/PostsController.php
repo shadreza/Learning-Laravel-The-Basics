@@ -25,6 +25,7 @@ class PostsController extends Controller
     public function create()
     {
         //
+        echo "create works";
     }
 
     /**
