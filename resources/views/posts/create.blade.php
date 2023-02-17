@@ -2,11 +2,15 @@
 
 @section('content')
 
-    <form method="post" action="/posts">
+    {{-- <form method="post" action="/posts">
+
+    </form> --}}
+
+    {!! Form::open(['method' => 'POST', 'action' => 'App\Http\Controllers\PostsController@store']); !!}
         @csrf
         <input type="text" name="title" placeholder="Enter Title">
         <input type="submit" name="submit">
-    </form>
+    {!! Form::close() !!}
 
 @stop
 
