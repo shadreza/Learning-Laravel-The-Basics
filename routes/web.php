@@ -467,4 +467,7 @@ Route::get('/', function () {
 */
 
 
-Route::resource('posts', PostsController::class);
+// middleware -> security feature
+Route::group(['middleware' => 'web'], function () {
+    Route::resource('posts', PostsController::class);
+});
