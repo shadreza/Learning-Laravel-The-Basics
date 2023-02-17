@@ -35,7 +35,10 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        echo $request->get('title');
+        // return all stuff
+        // return $request->all();
+
+        return $request->title;
     }
 
     /**
