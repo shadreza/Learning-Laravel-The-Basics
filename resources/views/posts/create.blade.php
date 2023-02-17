@@ -8,8 +8,12 @@
 
     {!! Form::open(['method' => 'POST', 'action' => 'App\Http\Controllers\PostsController@store']); !!}
         @csrf
-        <input type="text" name="title" placeholder="Enter Title">
-        <input type="submit" name="submit">
+
+        <div class="form-group">
+            {!! Form::label('title', 'Enter Title') !!}
+            {!! Form::text('title', null, ['class' => 'form-control']) !!}
+            {!! Form::submit('Create Post', ['class' => 'btn btn-primary']) !!}
+        </div>
     {!! Form::close() !!}
 
 @stop
