@@ -15,7 +15,8 @@ class PostsController extends Controller
     public function index()
     {
         //
-        return "index is working";
+        $posts = Post::all();
+        return view('posts.index');
     }
 
     /**
@@ -44,6 +45,7 @@ class PostsController extends Controller
 
         // post the data prc # 1
         Post::create($request->all());
+        return redirect('/posts');
 
         // post the data prc # 2
         // $input = $request->all();
