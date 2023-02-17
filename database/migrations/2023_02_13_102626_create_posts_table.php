@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            // we are commenting for polymorphic relations
-            // $table->integer('user_id')->unsigned();s
+            $table->integer('user_id')->unsigned();
             $table->string('title')->unique();
             $table->text('content');
             $table->timestamps();
