@@ -78,20 +78,4 @@ class User extends Authenticatable
     {
         return $this->morphMany('App\Models\Photo', 'imageable');
     }
-
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | Forms Working Bellow
-    |--------------------------------------------------------------------------
-    */
-
-    
-
-
-
-
-
-
 }
