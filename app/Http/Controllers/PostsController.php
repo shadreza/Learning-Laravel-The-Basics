@@ -24,8 +24,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
-        echo "create works";
+        return view('posts.create');
     }
 
     /**
@@ -36,7 +35,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        echo $request->get('title');
     }
 
     /**
