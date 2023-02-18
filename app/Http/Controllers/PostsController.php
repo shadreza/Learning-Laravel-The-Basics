@@ -59,16 +59,26 @@ class PostsController extends Controller
     public function store(CreatePostRequest $request)
     {
 
+        $input = $request->all();
+        if ($file = $request->file('file')) {
+            $name = $file->getClientOriginalName();
+            // move takes 2 params -> the location [in the public folder] && the name
+            $file->move('images', $name);
+            $input['path'] = $name;
+        }
+
+        Post::create($input);
+
         // this will return a temporary file path that continuously keeps on changing
         // return $request->file('file');
 
 
         // this will result it as the original name and the size
-        $file = $request->file('file');
-        echo "<br>";
-        echo $file->getClientOriginalName();
-        echo "<br>";
-        echo $file->getSize();
+        // $file = $request->file('file');
+        // echo "<br>";
+        // echo $file->getClientOriginalName();
+        // echo "<br>";
+        // echo $file->getSize();
 
         // advanced validation class added so no need
 

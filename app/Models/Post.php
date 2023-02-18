@@ -23,7 +23,8 @@ class Post extends Model
     // for mass assigning
     protected $fillable = [
         'title',
-        'content'
+        'content',
+        'path'
     ];
 
     protected $dates = ['deleted_at'];
