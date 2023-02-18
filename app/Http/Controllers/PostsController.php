@@ -13,10 +13,30 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+
+
+    // ----------------------------------------------
+    // Query Scope
+    // create shortcuts for really complex operations
+    // ----------------------------------------------
+
+
+
     public function index()
     {
         //
-        $posts = Post::all();
+        // $posts = Post::all();
+
+        // this will be showing the latests posts
+        // $posts = Post::latest()->get();
+
+        // this will be showing the id as ascending order
+
+
+        // this will be showing the id as ascending order
+        $posts = Post::latestById();
         return view('posts.index', compact('posts'));
     }
 
@@ -39,6 +59,16 @@ class PostsController extends Controller
     public function store(CreatePostRequest $request)
     {
 
+        // this will return a temporary file path that continuously keeps on changing
+        // return $request->file('file');
+
+
+        // this will result it as the original name and the size
+        $file = $request->file('file');
+        echo "<br>";
+        echo $file->getClientOriginalName();
+        echo "<br>";
+        echo $file->getSize();
 
         // advanced validation class added so no need
 
@@ -56,8 +86,8 @@ class PostsController extends Controller
         // return $request->title;
 
         // post the data prc # 1
-        Post::create($request->all());
-        return redirect('/posts');
+        // Post::create($request->all());
+        // return redirect('/posts');
 
         // post the data prc # 2
         // $input = $request->all();

@@ -49,6 +49,27 @@ class Post extends Model
     {
         return $this->morphToMany('App\Models\Tag', 'taggable');
     }
+
+
+
+
+
+
+    // -------------------------------------------
+    // query scope added here
+    // -------------------------------------------
+    // add the static keyword
+    // convention -> static + name [in camel case]
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return void
+     */
+    public static function scopeLatestById($query)
+    {
+        return $query->latest()->get();
+    }
 }
 
 

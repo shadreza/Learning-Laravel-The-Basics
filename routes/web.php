@@ -472,6 +472,7 @@ Route::get('/', function () {
 // middleware -> security feature
 Route::group(['middleware' => 'web'], function () {
     Route::resource('posts', PostsController::class);
+    Route::get('postss', [PostsController::class, 'newIndex']);
 
     Route::get('dates', function () {
 
@@ -497,6 +498,31 @@ Route::group(['middleware' => 'web'], function () {
         echo '<br>';
 
         echo Carbon::now()->yesterday();
+    });
+
+    // Accessor -> functionality that pulls data out of the db and manipulating data before getting it out
+    // works when we pull the data
+    Route::get('getname', function () {
+
+        // get data and while pulling it out it will be manipulated
+        // this accessor work will be done in the User Model
+
+        $user = User::findOrFail(1);
+        echo $user->name;
+    });
+
+
+    // Mutator -> functionality that sets a value before going into the db [manipulating data before going in the db]
+    // works when we save the data
+
+    Route::get('setname', function () {
+
+        // get data and while pulling it out it will be manipulated
+        // this accessor work will be done in the User Model
+
+        $user = User::findOrFail(1);
+        $user->name = 'tubamoni_lower';
+        $user->save();
     });
 });
 
