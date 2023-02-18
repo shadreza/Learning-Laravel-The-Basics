@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Photo;
 use App\Models\Video;
 use App\Models\Tag;
+use Carbon\Carbon;
+
 
 // /*
 // |--------------------------------------------------------------------------
@@ -467,4 +469,41 @@ Route::get('/', function () {
 */
 
 
-Route::resource('posts', PostsController::class);
+// middleware -> security feature
+Route::group(['middleware' => 'web'], function () {
+    Route::resource('posts', PostsController::class);
+
+    Route::get('dates', function () {
+
+        $date = new DateTime('+1 week');
+        echo $date->format('d-m-Y');
+
+        echo '<br>';
+        echo '<br>';
+        echo '<br>';
+
+        // Carbon
+
+        echo Carbon::now()->addDays(15)->diffForHumans();
+
+        echo '<br>';
+        echo '<br>';
+        echo '<br>';
+
+        echo Carbon::now()->subMonth(5)->diffForHumans();
+
+        echo '<br>';
+        echo '<br>';
+        echo '<br>';
+
+        echo Carbon::now()->yesterday();
+    });
+});
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Working With Dates Above
+|--------------------------------------------------------------------------
+*/
