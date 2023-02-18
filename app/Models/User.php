@@ -79,6 +79,12 @@ class User extends Authenticatable
         return $this->morphMany('App\Models\Photo', 'imageable');
     }
 
+
+
+    // Data Manipulation -|||
+
+
+
     // adding accessor
     // camel case
     // convention -> get + name of the col + attribute
@@ -86,6 +92,16 @@ class User extends Authenticatable
     {
         // the manipulation is done here
         return strtoupper($value);
-        return ucfirst($value);
+        // return ucfirst($value);
+    }
+
+
+    // adding mutator
+    // camel case
+    // convention -> set + name of the col + attribute
+    public function setNameAttribute($value)
+    {
+        // the manipulation is done here
+        $this->attributes['name'] = strtoupper($value);
     }
 }

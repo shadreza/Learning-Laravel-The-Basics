@@ -511,7 +511,18 @@ Route::group(['middleware' => 'web'], function () {
     });
 
 
-    
+    // Mutator -> functionality that sets a value before going into the db [manipulating data before going in the db]
+    // works when we save the data
+
+    Route::get('setname', function () {
+
+        // get data and while pulling it out it will be manipulated
+        // this accessor work will be done in the User Model
+
+        $user = User::findOrFail(1);
+        $user->name = 'tubamoni_lower';
+        $user->save();
+    });
 });
 
 
