@@ -6,7 +6,7 @@
 
     </form> --}}
 
-    {!! Form::open(['method' => 'POST', 'action' => 'App\Http\Controllers\PostsController@store']); !!}
+    {!! Form::open(['method' => 'POST', 'action' => 'App\Http\Controllers\PostsController@store', 'files'=>true]); !!}
         @csrf
 
         <div class="form-group">
@@ -14,6 +14,12 @@
             {!! Form::text('title', null, ['class' => 'form-control']) !!}
             {!! Form::submit('Create Post', ['class' => 'btn btn-primary']) !!}
         </div>
+
+        <div class="form-group">
+            {!! Form::label('title', 'Enter File') !!}
+            {!! Form::file('title', null, ['class' => 'form-control']) !!}
+        </div>
+
     {!! Form::close() !!}
 
     @if (count($errors) > 0)
