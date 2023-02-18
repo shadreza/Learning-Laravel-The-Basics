@@ -13,10 +13,30 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+
+
+    // ----------------------------------------------
+    // Query Scope
+    // create shortcuts for really complex operations
+    // ----------------------------------------------
+
+
+
     public function index()
     {
         //
-        $posts = Post::all();
+        // $posts = Post::all();
+
+        // this will be showing the latests posts
+        // $posts = Post::latest()->get();
+
+        // this will be showing the id as ascending order
+
+
+        // this will be showing the id as ascending order
+        $posts = Post::latestById();
         return view('posts.index', compact('posts'));
     }
 

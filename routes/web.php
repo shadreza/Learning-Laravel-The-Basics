@@ -472,6 +472,7 @@ Route::get('/', function () {
 // middleware -> security feature
 Route::group(['middleware' => 'web'], function () {
     Route::resource('posts', PostsController::class);
+    Route::get('postss', [PostsController::class, 'newIndex']);
 
     Route::get('dates', function () {
 
