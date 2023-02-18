@@ -19,6 +19,8 @@ class Post extends Model
     use HasFactory;
     use SoftDeletes;
 
+    public $directory  = '/images';
+
     // have to add the columns that can be created via the create method
     // for mass assigning
     protected $fillable = [
@@ -70,6 +72,14 @@ class Post extends Model
     public static function scopeLatestById($query)
     {
         return $query->latest()->get();
+    }
+
+    // adding accessor
+    // as the attribute was path so automatically does this
+    // no need to call the function
+    public function getPathAttribute($value)
+    {
+        return $this->directory . '/' . $value;
     }
 }
 
