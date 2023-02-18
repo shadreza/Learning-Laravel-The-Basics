@@ -498,6 +498,20 @@ Route::group(['middleware' => 'web'], function () {
 
         echo Carbon::now()->yesterday();
     });
+
+    // Accessor -> functionality that pulls data out of the db and manipulating data before getting it out
+    // works when we pull the data
+    Route::get('getname', function () {
+
+        // get data and while pulling it out it will be manipulated
+        // this accessor work will be done in the User Model
+
+        $user = User::findOrFail(1);
+        echo $user->name;
+    });
+
+
+    
 });
 
 
